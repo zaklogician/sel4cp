@@ -1064,7 +1064,7 @@ def build_system(
     for i in range(monitor_pages_required):
         page = capdl.Frame(f"monitor_page_{i}")
         cdl_spec.add_object(page)
-        page.set_fill(['{0 %s CDL_FrameFill_FileData "monitor.elf" %s}' % (kernel_config.minimum_page_size, i * kernel_config.minimum_page_size)])
+        page.set_fill(['0 %s CDL_FrameFill_FileData "monitor.elf" %s' % (kernel_config.minimum_page_size, i * kernel_config.minimum_page_size)])
         monitor_pt.slots[i] = capdl.Cap(page, read=True, write=True, grant=True)
     monitor_ipc_buf = capdl.Frame("monitor_ipc_buf")
     cdl_spec.add_object(monitor_ipc_buf)
